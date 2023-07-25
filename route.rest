@@ -2,7 +2,7 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/localhost:3000/subscribers/64bfc6f744360697db7b02b3
+GET http://localhost:3000//subscribers/64bfc6f744360697db7b02b3
 
 ###
 
@@ -12,3 +12,6 @@ Content-Type: application/json
     "name" : "animallover123",
     "subscribedToChannel" : "Berleezy"
 }
+
+
+### 
