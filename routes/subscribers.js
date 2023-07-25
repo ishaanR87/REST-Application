@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Subscriber = require('../models/subscriber')
+const subscriber = require('../models/subscriber')
 
 // get all subs
 router.get('/',  async (req, res) => {
@@ -13,8 +14,8 @@ router.get('/',  async (req, res) => {
 })
 
 // get one sub
-router.get('/:id', (req, res) => {
-    res.send(req.params.id);
+router.get('/:id', getSub, (req, res) => {
+    res.send(req.subscriber.id);
 })
 
 // create sub
@@ -41,5 +42,19 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
 
 })
+async function getSub(req, res, next) {
+    let subscriber
+    try {
+        subscriber = await Subscriber.findById(req.params.id)
+        if (subscriber == null) {
+            return res.status(404).json({message: 'Cannot find subscriber'})
+        }
+    } catch (error) {
+        res.status(500).json({message: err.message})        
+    }
+
+    res.subscriber = subscriber
+    next()
+}
 
 module.exports = router
