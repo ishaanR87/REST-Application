@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-const bp = require('body-parser')
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -10,11 +9,10 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.on('open', () => console.log('Connected to Database'))
 
-app.use(bp.urlencoded({ extended : true }))
 app.use(express.json())
 
 const subscribersRouter = require('./routes/subscribers')
-const bodyParser = require('body-parser')
+
 app.use('/subscribers', subscribersRouter)
 
 

@@ -2,11 +2,11 @@ GET http://localhost:3000/subscribers
 
 ###
 
-GET http://localhost:3000/subscribers/15 
+GET http://localhost:3000/subscribers/64bfc6f744360697db7b02b3
 
 ###
 
-POST http://localhost:3000/subscribers HTTP/1.1
+POST http://localhost:3000/subscribers 
 Content-Type: application/json
 {
     "name" : "animallover123",
